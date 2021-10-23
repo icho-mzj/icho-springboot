@@ -1,0 +1,24 @@
+server:
+  port: 80
+logging:
+  level:
+    com.icho: debug
+mybatis:
+  type-aliases-package: com.icho.bean # 别名扫描
+  configuration:
+    map-underscore-to-camel-case: true # 驼峰映射
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印SQL
+# mapper-locations: mybatis/mapper/*.xml
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=GMT
+    username: root
+    password: 4321
+  redis:
+    host: 127.0.0.1
+  rabbitmq:
+    host: 127.0.0.1
+    username: guest
+    password: guest
+    virtual-host: /
