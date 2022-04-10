@@ -10,8 +10,7 @@ import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -54,6 +53,33 @@ public class RedisTemplate {
         }
     }
 
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("01","02","03","04","05");
+        ArrayList<String> result = new ArrayList<>();
+        HashMap<String, String> map1 = new HashMap<>();
+        HashMap<String, String> map2 = new HashMap<>();
+        HashMap<String, String> map3 = new HashMap<>();
+        map1.put("date", "01");
+        map1.put("val", "aa");
+
+        map2.put("date", "02");
+        map2.put("val", "bb");
+
+        map3.put("date", "03");
+        map3.put("val", "cc");
+        List<HashMap<String, String>> list1 = Arrays.asList(map1,map2,map3);
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(list1.get(i).get("date"))){
+                result.add(i,list1.get(i).get("val"));
+            }else {
+                result.add(i, "-");
+            }
+        }
+        Collections.reverse(result);
+        System.out.println("result = " + result);
+    }
+
     /*@Test
     public void MDemo() {
         HashMap<String, String> map = new HashMap<>();
@@ -62,4 +88,6 @@ public class RedisTemplate {
         map.put("sex","1");
         redisTemplate.opsForValue().multiSet(map);
     }*/
+
+    // TODO 常用的redisAPI
 }
