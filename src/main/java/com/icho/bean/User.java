@@ -32,10 +32,10 @@ public class User {
     private String name;
     // 年龄
     @ApiModelProperty(value = "年龄")
-    private Integer age;
+    private String age;
     // 性别，1男性，2女性
     @ApiModelProperty(value = "性别，1男性，2女性")
-    private Integer sex;
+    private String sex;
     // 出生日期
     @ApiModelProperty(value = "出生日期")
     private Date birthday;

@@ -12,10 +12,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * @Author: icho
@@ -23,11 +28,16 @@ import javax.sql.DataSource;
  * @Describe:
  */
 @Configuration
-@MapperScan(basePackages  = "com.icho.master.mapper" , sqlSessionFactoryRef = "masterSqlSessionFactory")
+@MapperScan(basePackages  = {
+        "com.icho.master.mapper"
+} ,
+        sqlSessionFactoryRef = "masterSqlSessionFactory")
 public class MasterDBConfig {
     private Logger logger = LoggerFactory.getLogger(MasterDBConfig.class);
     // 精确到 master 目录，以便跟其他数据源隔离
-    private static final String MAPPER_LOCATION = "classpath*:master/mapper/*.xml";
+    private static final String[] MAPPER_LOCATION = {
+            "classpath:com/icho/master/mapper/*.xml"
+    };
     private static final String DOMAIN_PACKAGE = "com.icho.bean";
 
     @Value("${spring.datasource.url1}")
@@ -65,7 +75,18 @@ public class MasterDBConfig {
     public SqlSessionFactory masterSqlSessionFactory(@Qualifier("masterDataSource") DataSource masterDataSource) throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(masterDataSource);
-        sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(MasterDBConfig.MAPPER_LOCATION));
+
+        ArrayList<Resource> list = new ArrayList<>();
+        Stream.of(MAPPER_LOCATION).forEach(location -> {
+            try {
+                Resource[] resources = new PathMatchingResourcePatternResolver().getResources(location);
+                list.addAll(Arrays.asList(resources));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        sessionFactory.setMapperLocations(list.toArray(new Resource[list.size()]));
         //sessionFactory.setTypeAliasesPackage(DOMAIN_PACKAGE);
         //mybatis 数据库字段与实体类属性驼峰映射配置
         //sessionFactory.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);

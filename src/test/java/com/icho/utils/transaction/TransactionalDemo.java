@@ -1,7 +1,7 @@
 package com.icho.utils.transaction;
 
 import com.icho.bean.User;
-import com.icho.master.mapper.UserMapperM;
+import com.icho.master.mapper.MUserMapper;
 import com.icho.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class TransactionalDemo {
 
     @Autowired
-    private UserMapperM userMapperM;
+    private MUserMapper MUserMapper;
 
     @Autowired
     private UserServiceImpl userService;

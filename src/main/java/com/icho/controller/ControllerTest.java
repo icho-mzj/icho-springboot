@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @Author: icho
@@ -37,6 +38,16 @@ public class ControllerTest {
     public User queryById(@PathVariable("id") Long id) {
         User user = userService.queryById(id);
         return user;
+    }
+
+    @RequestMapping("/addUsers")
+    public void addUsers(@RequestBody List<User> users) {
+        userService.addUsers(users);
+    }
+
+    @GetMapping("/queryUsers")
+    public List<User> queryUsers() {
+        return userService.queryUsers();
     }
 
 }

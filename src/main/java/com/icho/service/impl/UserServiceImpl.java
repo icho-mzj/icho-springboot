@@ -2,12 +2,14 @@ package com.icho.service.impl;
 
 import com.icho.bean.User;
 import com.icho.cluster.mapper.UserMapperC;
-import com.icho.master.mapper.UserMapperM;
+import com.icho.master.mapper.MUserMapper;
 import com.icho.service.UserService;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * @Author: icho
@@ -19,14 +21,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserMapperM userMapperM;
+    private MUserMapper MUserMapper;
 
     @Autowired
     private UserMapperC userMapperC;
 
     public User queryById(Long id) {
         // 开始查询
-        User userM = userMapperM.selectByPrimaryKey(id);
+        User userM = MUserMapper.selectByPrimaryKey(id);
         System.out.println("userM = " + userM);
         User userC = userMapperC.selectByPrimaryKey(id);
         System.out.println("userC = " + userC);
@@ -44,5 +46,16 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public void deleteById(Long id) {
         System.out.println("删除了 : " + id);
+    }
+
+    @Override
+    @Transactional
+    public void addUsers(List<User> users) {
+        MUserMapper.addUsers(users);
+    }
+
+    @Override
+    public List<User> queryUsers() {
+        return MUserMapper.selectUsers();
     }
 }
