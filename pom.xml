@@ -25,6 +25,12 @@
     </properties>
 
     <dependencies>
+        <!-- FastJson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.78</version>
+        </dependency>
         <!--JWT 依赖-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>

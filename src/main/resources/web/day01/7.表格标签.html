@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+<h3>这个表格没有边框</h3>
+<table>
+    <!-- 一行 -->
+    <tr>
+        <!-- 一列 -->
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <!-- 一列 -->
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+</table>
+
+<h3>这个表格有边框</h3>
+<table border="2" width="200">
+    <tr>
+        <td>姓名</td>
+        <td>电话</td>
+        <td>电话</td>
+    </tr>
+    <tr>
+        <td>Icho</td>
+        <td>123</td>
+        <td>123</td>
+    </tr>
+</table>
+
+<!-- 跨列的表格 -->
+<table border="2" width="200">
+    <caption>表格标题</caption>
+    <tr>
+        <td colspan="3">返回数据</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+</table>
+
+<table border="2" width="300" align="center" cellpadding="0" cellspacing="0">
+    <caption>学生成绩表</caption>
+    <tr align="center">
+        <td>编号</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>成绩</td>
+    </tr>
+    <tr>
+        <td>100</td>
+        <td>潘金莲</td>
+        <td>女</td>
+        <td>80</td>
+    </tr>
+    <tr>
+        <td>200</td>
+        <td>武大狼</td>
+        <td>男</td>
+        <td rowspan="2">80</td>
+    </tr>
+    <tr>
+        <td>300</td>
+        <td>红太狼</td>
+        <td>女</td>
+        <!--<td>80</td>-->
+    </tr>
+    <tr>
+        <td>总成绩</td>
+        <td colspan="3">900</td>
+    </tr>
+</table>
+
+</body>
+</html>

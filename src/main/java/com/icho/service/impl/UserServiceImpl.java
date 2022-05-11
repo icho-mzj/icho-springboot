@@ -4,11 +4,13 @@ import com.icho.bean.User;
 import com.icho.cluster.mapper.UserMapperC;
 import com.icho.master.mapper.MUserMapper;
 import com.icho.service.UserService;
+import io.swagger.models.auth.In;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -57,5 +59,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> queryUsers() {
         return MUserMapper.selectUsers();
+    }
+
+    public static void main(String[] args) {
+        Integer[] nums = {1, 2, 3};
+        add(nums,1,5);
+        System.out.println("nums = " + Arrays.toString(nums));
+    }
+
+    private static void add(Integer[] nums, Integer index,Integer val) {
+        nums[index] = val;
     }
 }
