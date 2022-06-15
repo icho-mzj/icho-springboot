@@ -73,7 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          hasRole
         */
         http.authorizeRequests() // 认证配置
-                .antMatchers("/","/hello","/loginPage","login").permitAll() // 设置哪些路径可以直接访问,不需要认证
+                .antMatchers("/test/**","/hello","/loginPage","login").permitAll() // 设置哪些路径可以直接访问,不需要认证
                 .antMatchers("/findAll").hasAnyAuthority("menu:system") // 支持多个role
                 .anyRequest() // 任何请求
                 .authenticated() // 都需要身份认证

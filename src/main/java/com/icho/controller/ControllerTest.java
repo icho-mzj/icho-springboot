@@ -1,5 +1,6 @@
 package com.icho.controller;
 
+import com.icho.annotation.CheckParam;
 import com.icho.bean.User;
 import com.icho.service.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -25,6 +26,13 @@ public class ControllerTest {
     @Autowired
     private UserService userService;
 
+    @RequestMapping("cookieTest")
+    public String cookieTest(@CookieValue("token") String token) {
+        return token;
+    }
+
+
+    @CheckParam
     @GetMapping("/hello")
     public String hello(@RequestParam String date) {
         return "hello, spring boot!";

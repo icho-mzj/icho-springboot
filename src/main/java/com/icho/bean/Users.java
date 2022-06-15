@@ -2,13 +2,15 @@ package com.icho.bean;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * @Author: icho
  * @Date: 2022/4/12 23:15
  * @Describe: SpringSecurity
  */
 @Data
-public class Users {
+public class Users implements Serializable,Cloneable {
     private Integer id;
     private String username;
     private String password;
@@ -17,5 +19,10 @@ public class Users {
         this.id = id;
         this.username = username;
         this.password = password;
+    }
+
+    @Override
+    public Users clone() throws CloneNotSupportedException {
+        return (Users)super.clone();
     }
 }

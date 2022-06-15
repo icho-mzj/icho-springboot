@@ -25,6 +25,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <!-- FastJson -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -54,7 +58,7 @@
             <version>2.9.2</version>
         </dependency>
 
-        <!-- 汉子转拼音 -->
+        <!-- 汉字转拼音 -->
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>pinyin4j</artifactId>
