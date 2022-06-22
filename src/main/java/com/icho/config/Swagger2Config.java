@@ -34,7 +34,7 @@ public class Swagger2Config {
                 //简介
                 .description("测试接口文档")
                 //作者、网址http:localhost:8088/doc.html(这里注意端口号要与项目一致，如果你的端口号后面还加了前缀，就需要把前缀加上)、邮箱
-                .contact(new Contact("wsw","http:localhost:8081/doc.html","111@qq.com"))
+                //.contact(new Contact("wsw","http:localhost:8081/doc.html","icho_mzj@163.com"))
                 //版本
                 .version("1.0")
                 .build();

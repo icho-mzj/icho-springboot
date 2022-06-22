@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Primary;
 @ComponentScan(basePackages = {"com.icho.springsource.autowired"})
 public class MainConfig {
 
-    @Bean
+    /*@Bean
     public DaoTest daoTest2() {
         DaoTest daoTest = new DaoTest();
         daoTest.setFlag(2);
@@ -26,7 +26,7 @@ public class MainConfig {
         DaoTest daoTest = new DaoTest();
         daoTest.setFlag(1);
         return daoTest;
-    }
+    }*/
 
     //@Bean(autowire = Autowire.BY_TYPE)
     @Bean(autowire = Autowire.BY_NAME)

@@ -1,6 +1,7 @@
 package com.icho.springsource.importTest.importSelectTest;
 
-import com.icho.springsource.importTest.compent.Person;
+import com.icho.springsource.Person;
+import com.icho.springsource.importTest.test.Human;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;

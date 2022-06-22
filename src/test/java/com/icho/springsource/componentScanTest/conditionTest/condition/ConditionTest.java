@@ -1,4 +1,4 @@
-package com.icho.springsource.conditionTest.condition;
+package com.icho.springsource.componentScanTest.conditionTest.condition;
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;

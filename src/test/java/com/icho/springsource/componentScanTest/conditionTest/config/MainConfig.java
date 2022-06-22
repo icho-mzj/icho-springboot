@@ -1,8 +1,8 @@
-package com.icho.springsource.conditionTest.config;
+package com.icho.springsource.componentScanTest.conditionTest.config;
 
-import com.icho.springsource.conditionTest.compent.AspectTest;
-import com.icho.springsource.conditionTest.compent.LogTest;
-import com.icho.springsource.conditionTest.condition.ConditionTest;
+import com.icho.springsource.componentScanTest.conditionTest.compent.AspectTest;
+import com.icho.springsource.componentScanTest.conditionTest.compent.LogTest;
+import com.icho.springsource.componentScanTest.conditionTest.condition.ConditionTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
 

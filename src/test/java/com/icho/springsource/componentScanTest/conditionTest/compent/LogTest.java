@@ -1,4 +1,4 @@
-package com.icho.springsource.conditionTest.compent;
+package com.icho.springsource.componentScanTest.conditionTest.compent;
 
 /**
  * @Author: icho

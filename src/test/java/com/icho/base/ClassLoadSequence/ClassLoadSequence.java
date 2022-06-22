@@ -35,7 +35,7 @@ public class ClassLoadSequence {
     }
 
     /*
-    父类静态代码块 -> 子类静态代码块 -> 父类代码块 -> 父类构造方法 -> 子类代码块 -> 子类构造方法
+    父类静态代码块,静态变量 -> 子类静态代码块,静态变量 -> 父类代码块,成员变量 -> 父类构造方法 -> 子类代码块,成员变量 -> 子类构造方法
     */
     private static void test02() {
         Subtine subtine = new Subtine();
