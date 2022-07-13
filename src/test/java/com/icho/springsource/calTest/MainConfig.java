@@ -9,6 +9,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  * @Date: 2022/6/20 19:50
  * @Describe:
  */
+//@EnableAspectJAutoProxy(exposeProxy = true)
+//@EnableAspectJAutoProxy(proxyTargetClass = true) // 强制使用cglib进行代理
 @EnableAspectJAutoProxy
 @ComponentScan(basePackages = {"com.icho.springsource.calTest"})
 public class MainConfig {
