@@ -11,6 +11,8 @@ import java.util.Random;
 public class InsertionSort {
 
     /*
+     每次循环把最小值插入arr前
+
      平均时间复杂度: O(n2)
      最佳情况: T(n) = O(n)
      最坏情况: T(n) = O(n2)
@@ -26,11 +28,11 @@ public class InsertionSort {
 
     private static int[] insertionSortDemo(int[] arr) {
         int curr;
-        for (int i = 0; i < arr.length - 1; i++) {
-            curr = arr[i + 1];
-            int pre = i;
-            while (pre >= 0 && arr[pre] > curr) {
-                arr[pre + 1] = arr[pre]; // 把大的值给后方
+        for (int i = 0; i < arr.length; i++) {
+            curr = arr[i];
+            int pre = i - 1;
+            while (pre > 0 && arr[pre] > curr) {
+                curr = arr[pre];
                 pre--;
             }
             arr[pre + 1] = curr;

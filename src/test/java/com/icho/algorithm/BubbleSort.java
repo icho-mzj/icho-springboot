@@ -12,6 +12,8 @@ import java.util.Random;
 public class BubbleSort {
 
     /*
+     每次循环把最大值移到最后一位
+
      最佳情况: T(n) = O(n)
      最差情况: T(n) = O(n2)
      平均情况: T(n) = O(n2)
@@ -26,13 +28,16 @@ public class BubbleSort {
         System.out.println(Arrays.toString(bubbleSortDemo(arr)));
     }
 
+    //
     private static int[] bubbleSortDemo(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
-                if (arr[j - 1] > arr[j]) {
-                    int temp = arr[j - 1];
-                    arr[j - 1] = arr[j];
-                    arr[j] = temp;
+                int pre = j - 1;
+                int curr = j;
+                if (arr[pre] > arr[curr]) {
+                    int t = arr[pre];
+                    arr[pre] = arr[curr];
+                    arr[curr] = t;
                 }
             }
         }
